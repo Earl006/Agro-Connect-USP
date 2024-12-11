@@ -27,8 +27,8 @@ builder.Services.AddAuthentication(opt =>{
    {
        ValidateIssuer = true,
        ValidateAudience = true,
-       ValidAudience = JWTSetting["JWT:ValidAudience"],
-       ValidIssuer = JWTSetting["JWT:ValidIssuer"],
+       ValidAudience = JWTSetting["ValidAudience"],
+       ValidIssuer = JWTSetting["ValidIssuer"],
        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(securityKey))
    };
 });

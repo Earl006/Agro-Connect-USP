@@ -1,0 +1,2 @@
+### GET USER PROFILE/DETAILS
+GET http://localhost:5000/api/user/71ac18d8-0861-4a1e-80ee-ef28b6e9b1db
