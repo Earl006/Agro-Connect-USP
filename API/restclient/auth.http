@@ -5,7 +5,7 @@ Content-Type: application/json
 {
     "name": "test",
     "email": "test@gmail.com",
-    "password": "Pa$$word1",
+    "password": "Pa$$w0rd",
     "role": "User"
 }
 
@@ -18,6 +18,6 @@ Content-Type: application/json
     "password": "Pa$$word1"
 }
 
-###GET LOGGED IN USER PROFILE
+### Get Logged In User Profile
 GET http://localhost:5000/api/auth/detail
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwibmFtZSI6InRlc3QiLCJuYW1laWQiOiI3MWFjMThkOC0wODYxLTRhMWUtODBlZS1lZjI4YjZlOWIxZGIiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjQyMDAiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJyb2xlIjoiVXNlciIsIm5iZiI6MTczMzg3Mzk5MSwiZXhwIjoxNzMzODc3NTkxLCJpYXQiOjE3MzM4NzM5OTF9.v5bAxh9CnVbLboctT2S7OtwNpRFqocHFjbLPoUWYZVM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwibmFtZSI6InRlc3QiLCJuYW1laWQiOiI3MWFjMThkOC0wODYxLTRhMWUtODBlZS1lZjI4YjZlOWIxZGIiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAiLCJyb2xlIjoiVXNlciIsIm5iZiI6MTczMzk2MTQ3MiwiZXhwIjoxNzMzOTY1MDcyLCJpYXQiOjE3MzM5NjE0NzJ9.Kxrv5ICpoWNVAdaWZHrA3Rp3kUyPdrWKKPO43RpICU4

@@ -1,0 +1,27 @@
+###CREATE ROLE
+POST http://localhost:5000/api/role/create
+Content-Type: application/json
+Authorization: Bearer 
+    
+    {
+        "roleName": "Manager1"
+    }
+
+###GET ALL ROLES
+GET http://localhost:5000/api/role
+
+###GET ROLE BY ID
+GET http://localhost:5000/api/role/f5193f4f-2c2c-4525-8bc3-839d4adb443a
+
+###UPDATE ROLE
+PUT http://localhost:5000/api/role/f5193f4f-2c2c-4525-8bc3-839d4adb443a
+Content-Type: application/json
+Authorization: Bearer
+    
+    {
+        "roleName": "User"
+    }
+
+###DELETE ROLE
+DELETE http://localhost:5000/api/role/a1a43182-ba77-4ab0-a21b-7462c6e51fa9
+Authorization: Bearer

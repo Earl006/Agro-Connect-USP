@@ -7,6 +7,7 @@ using API.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -14,7 +15,7 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-         private readonly IConfiguration _configuration;
+        private readonly IConfiguration _configuration;
 
         private readonly UserManager<UserModel> _userManager;
 
@@ -28,13 +29,14 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task <ActionResult<UsersDto>> GetUser(string id)
+        public async Task<ActionResult<UsersDto>> GetUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
 
-            if(user == null)
+            if (user == null)
             {
-                return NotFound(new AuthResponseDto{
+                return NotFound(new AuthResponseDto
+                {
                     IsSuccess = false,
                     Message = "User not Found"
                 });
@@ -45,14 +47,35 @@ namespace API.Controllers
             {
                 Id = user.Id,
                 Name = user.Name,
-                Email =user.Email,
-                Roles = [..await _userManager.GetRolesAsync(user)],
+                Email = user.Email,
+                Roles = [.. await _userManager.GetRolesAsync(user)],
                 PhoneNumberConfirmed = user.PhoneNumberConfirmed,
                 AccessFailedCount = user.AccessFailedCount
             };
 
             return Ok(result);
-            
+
+        }
+        // api/user/
+        [HttpGet]
+        public async Task<ActionResult<List<UsersDto>>> GetUsers()
+        {
+            var users = await _userManager.Users.ToListAsync();
+            var result = new List<UsersDto>();
+            foreach (var user in users)
+            {
+                var userDto = new UsersDto
+                {
+                    Id = user.Id,
+                    Name = user.Name,
+                    Email = user.Email,
+                    Roles = [.. await _userManager.GetRolesAsync(user)],
+                    PhoneNumberConfirmed = user.PhoneNumberConfirmed,
+                    AccessFailedCount = user.AccessFailedCount
+                };
+                result.Add(userDto);
+            }
+            return Ok(result);
         }
 
     }
